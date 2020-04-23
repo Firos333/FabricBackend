@@ -24,6 +24,9 @@ class SecondTable(models.Model):
     date_modified = models.DateField(auto_now=True)
     time_modified = models.TimeField(auto_now=True)
     time_date = models.DateTimeField(auto_now=True)
+    class meta():
+        fields=('meter')
+
 
 class ThirdTable(models.Model):
     

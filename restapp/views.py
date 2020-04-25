@@ -46,9 +46,10 @@ class Tables(APIView):
                 sv_count = SecondTable.objects.filter(meter=meter, Unique_id=Unique_id,fault='sv').count()
                 third=ThirdTable(wdr_count=wdr_count,wdt_count=wdt_count,cm_count=cm_count,cwp_count=cwp_count,sos_count=sos_count,sv_count=sv_count,Unique_id=Unique_id,meter=meter)
                 third.save()
-                for row in ThirdTable.objects.all().reverse():
-                    if ThirdTable.objects.filter(meter=row.meter,Unique_id=Unique_id).count() > 1:
-                        row.delete()
+            ThirdTable.objects.filter( Unique_id=Unique_id).order_by('meter')
+            for row in ThirdTable.objects.all().reverse():
+                if ThirdTable.objects.filter(meter=row.meter,Unique_id=Unique_id).count() > 1:
+                    row.delete()
             return Response(status=status.HTTP_201_CREATED)
         
     

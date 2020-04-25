@@ -3,10 +3,10 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from django.http import HttpResponse
-from .models import PrimaryTable,SecondTable,ThirdTable
+from .models import PrimaryTable,SecondTable,ThirdTable,FourthTable
 from django.shortcuts import get_object_or_404
 from .serializers import PrimaryTableSerializer
-from django.db.models import Max
+from django.db.models import Sum,Max
 
 class Tables(APIView):
 
@@ -46,9 +46,27 @@ class Tables(APIView):
                 sv_count = SecondTable.objects.filter(meter=meter, Unique_id=Unique_id,fault='sv').count()
                 third=ThirdTable(wdr_count=wdr_count,wdt_count=wdt_count,cm_count=cm_count,cwp_count=cwp_count,sos_count=sos_count,sv_count=sv_count,Unique_id=Unique_id,meter=meter)
                 third.save()
-            ThirdTable.objects.filter( Unique_id=Unique_id).order_by('meter')
-            for row in ThirdTable.objects.all().reverse():
+            for row in ThirdTable.objects.filter(Unique_id=Unique_id).all().reverse():
                 if ThirdTable.objects.filter(meter=row.meter,Unique_id=Unique_id).count() > 1:
+                    row.delete()
+            meter_dic = ThirdTable.objects.filter(Unique_id=Unique_id).aggregate(Max('meter'))
+            meter_total=meter_dic.get("meter__max")
+            wdr_count_dic = ThirdTable.objects.filter(Unique_id=Unique_id).aggregate(Sum('wdr_count'))
+            wdr_count_total= wdr_count_dic.get("wdr_count__sum")
+            wdt_count_dic = ThirdTable.objects.filter(Unique_id=Unique_id).aggregate(Sum('wdt_count'))
+            wdt_count_total= wdt_count_dic.get("wdt_count__sum")
+            cm_count_dic = ThirdTable.objects.filter(Unique_id=Unique_id).aggregate(Sum('cm_count'))
+            cm_count_total= cm_count_dic.get("cm_count__sum")
+            cwp_count_dic = ThirdTable.objects.filter(Unique_id=Unique_id).aggregate(Sum('cwp_count'))
+            cwp_count_total= cwp_count_dic.get("cwp_count__sum")
+            sos_count_dic = ThirdTable.objects.filter(Unique_id=Unique_id).aggregate(Sum('sos_count'))
+            sos_count_total= sos_count_dic.get("sos_count__sum")
+            sv_count_dic = ThirdTable.objects.filter(Unique_id=Unique_id).aggregate(Sum('sv_count'))
+            sv_count_total= sv_count_dic.get("sv_count__sum")
+            fourth=FourthTable(wdr_count_total=wdr_count_total,wdt_count_total=wdt_count_total,cm_count_total=cm_count_total,cwp_count_total=cwp_count_total,sos_count_total=sos_count_total,sv_count_total=sv_count_total,Unique_id=Unique_id,meter_total=meter_total)
+            fourth.save()
+            for row in FourthTable.objects.filter(Unique_id=Unique_id).all().reverse():
+                if FourthTable.objects.filter(Unique_id=Unique_id).count() > 1:
                     row.delete()
             return Response(status=status.HTTP_201_CREATED)
         

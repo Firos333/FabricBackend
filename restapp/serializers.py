@@ -2,10 +2,10 @@
 from .models import PrimaryTable,SecondTable,ThirdTable
 from rest_framework import serializers
 # from rest_framework import 
-from rest_framework.serializers import ModelSerializers
+from rest_framework.serializers import ModelSerializer
 
-class PrimaryTableSerializer(Serializers.ModelSerializer):
+class PrimaryTableSerializer(serializers.ModelSerializer):
 
-    class meta():
+    class Meta():
         model=PrimaryTable
-        fields=('Unique_id')
+        fields="__all__"

@@ -58,17 +58,7 @@ class ThirdTable(models.Model):
     # cwp_count = models.IntegerField(default=0)
     # sos_count = models.IntegerField(default=0)
     # sv_count = models.IntegerField(default=0)
-    # date_modified = models.DateField(auto_now=True)
+    date_modified = models.DateField(auto_now=True)
     time_modified = models.TimeField(auto_now=True)
     time_date = models.DateTimeField(auto_now=True)
 
-class FourthTable(models.Model):
-    Unique_id = models.CharField(max_length =50,default=0)
-    meter_total = models.IntegerField(default=0)
-    wdr_count_total = models.IntegerField(default=0)
-    wdt_count_total = models.IntegerField(default=0)
-    cm_count_total = models.IntegerField(default=0)
-    cwp_count_total = models.IntegerField(default=0)
-    sos_count_total = models.IntegerField(default=0)
-    sv_count_total = models.IntegerField(default=0)
-    time_date = models.DateTimeField(auto_now=True)

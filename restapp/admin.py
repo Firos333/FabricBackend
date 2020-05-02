@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import PrimaryTable,SecondTable,ThirdTable,FourthTable
+from .models import PrimaryTable,SecondTable,ThirdTable
 # Register your models here.
 admin.site.register(PrimaryTable)
 admin.site.register(SecondTable)

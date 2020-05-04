@@ -13,17 +13,17 @@ class PrimaryTable(models.Model):
     beam_no = models.IntegerField(default=0)
     piece_no = models.IntegerField(default=0)
     Descrip = models.CharField(max_length =250,default=0)
-    Weave = models.IntegerField(default=0)
-    Weft_Count = models.IntegerField(default=0)
-    Act_Width = models.IntegerField(default=0)
-    Warp_Count = models.IntegerField(default=0)
-    Sound_MTRSC = models.IntegerField(default=0)
-    DOFE_MTRS = models.IntegerField(default=0)
-    Act_EPI = models.IntegerField(default=0)
-    Act_PPI = models.IntegerField(default=0)
-    Doffed_Shift = models.IntegerField(default=0)
-    date_modified = models.DateField(auto_now=True)
-    time_modified = models.TimeField(auto_now=True)
+    Weave = models.CharField(max_length =50,default=0)
+    Weft_Count = models.CharField(max_length =50,default=0)
+    Act_Width = models.CharField(max_length =50,default=0)
+    Warp_Count = models.CharField(max_length =50,default=0)
+    Sound_MTRSC = models.CharField(max_length =50,default=0)
+    DOFE_MTRS = models.CharField(max_length =50,default=0)
+    Act_EPI = models.CharField(max_length =50,default=0)
+    Act_PPI = models.CharField(max_length =50,default=0)
+    Doffed_Shift = models.CharField(max_length =50,default=0)
+    date_modified = models.CharField(max_length =50,default=0)
+    time_modified = models.CharField(max_length =50,default=0)
     def __str__(self):
         return self.Unique_id
 
@@ -42,6 +42,8 @@ class ThirdTable(models.Model):
     
     Unique_id = models.CharField(max_length =50,default=0)
     meter = models.IntegerField(default=0)
+
+    # Yawn fault
     YSV_count = models.IntegerField(default=0)
     CV_count = models.IntegerField(default=0)
     CW_count = models.IntegerField(default=0)
@@ -51,13 +53,54 @@ class ThirdTable(models.Model):
     Ctn_count = models.IntegerField(default=0)
     CWp_count = models.IntegerField(default=0)
     
+    # Sizing fault
+    SOS_count = models.IntegerField(default=0)
+    SPB_count = models.IntegerField(default=0)
+    SV_count = models.IntegerField(default=0)
+    SS_count = models.IntegerField(default=0)
+
+    #DyedYarn Faults
+    COV_count = models.IntegerField(default=0)
+    STB_count = models.IntegerField(default=0)
+
+    #Weavers Fault buttons
+    DOP_count = models.IntegerField(default=0)
+    HS_count = models.IntegerField(default=0)
+    WDR_count = models.IntegerField(default=0)
+    WWft_count = models.IntegerField(default=0)
+    WDT_count = models.IntegerField(default=0)
+    SW_count = models.IntegerField(default=0)
+
+    #Machine Faults
+    EH_count = models.IntegerField(default=0)
+    H_count = models.IntegerField(default=0)
+    LM_count = models.IntegerField(default=0)
+    LWP_count = models.IntegerField(default=0)
+    MB_count = models.IntegerField(default=0)
+    OWP_count = models.IntegerField(default=0)
+    RM_count= models.IntegerField(default=0)
+    SM_count = models.IntegerField(default=0)
+    TM_count = models.IntegerField(default=0)
+
+    BP_count = models.IntegerField(default=0)
+    CR_count = models.IntegerField(default=0)
+    DE_count = models.IntegerField(default=0)
+    FL_count = models.IntegerField(default=0)
+    LO_count = models.IntegerField(default=0)
+    ME_count = models.IntegerField(default=0)
+    SEF_count = models.IntegerField(default=0)
+    TER_count = models.IntegerField(default=0)
+    TL_count = models.IntegerField(default=0)
+
+    BS_count = models.IntegerField(default=0)
+    BTN_count = models.IntegerField(default=0)
+    DM_count = models.IntegerField(default=0)
+    DP_count = models.IntegerField(default=0)
+    OWft_count = models.IntegerField(default=0)
+    TC_count = models.IntegerField(default=0)
+    TP_count = models.IntegerField(default=0)
     
-    # wdr_count = models.IntegerField(default=0)
-    # wdt_count = models.IntegerField(default=0)
-    # cm_count = models.IntegerField(default=0)
-    # cwp_count = models.IntegerField(default=0)
-    # sos_count = models.IntegerField(default=0)
-    # sv_count = models.IntegerField(default=0)
+
     date_modified = models.DateField(auto_now=True)
     time_modified = models.TimeField(auto_now=True)
     time_date = models.DateTimeField(auto_now=True)

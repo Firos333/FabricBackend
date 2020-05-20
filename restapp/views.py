@@ -51,10 +51,7 @@ class Tables(APIView):
             fault = request.data.get('fault')
             second=SecondTable(fault=fault,meter=meter_read,Unique_id =Unique_id )
             second.save()
-            return Response(status=status.HTTP_201_CREATED)
-    
-        elif "Unique_id_current" in request.data:
-            Unique_id = request.data.get('Unique_id_current')
+ 
             for x in SecondTable.objects.filter(Unique_id=Unique_id).all():
                 meter= x.meter
                 # Yawn fault

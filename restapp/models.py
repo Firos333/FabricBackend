@@ -22,8 +22,8 @@ class PrimaryTable(models.Model):
     Act_EPI = models.CharField(max_length =50,default=0)
     Act_PPI = models.CharField(max_length =50,default=0)
     Doffed_Shift = models.CharField(max_length =50,default=0)
-    date_modified = models.CharField(max_length =50,default=0)
-    time_modified = models.CharField(max_length =50,default=0)
+    date_modified = models.DateField(auto_now=True)
+    time_modified = models.TimeField(auto_now=True)
     def __str__(self):
         return self.Unique_id
 

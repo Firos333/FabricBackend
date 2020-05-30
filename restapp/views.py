@@ -33,7 +33,7 @@ class Tables(APIView):
             primary.save()
             pk_store=primary.pk
             
-            Unique_id = str(primary.pk)+loom_no+str(piece_no)+str(set_no)
+            Unique_id = str(primary.pk)+loom_no+piece_no+set_no+beam_no
             
             primary=PrimaryTable(loom_no=loom_no,piece_no=piece_no,set_no=set_no,beam_no=beam_no,
             Unique_id=Unique_id,Descrip=Descrip,Weave=Weave,Weft_Count=Weft_Count,Act_Width=Act_Width,

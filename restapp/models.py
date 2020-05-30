@@ -8,10 +8,10 @@ from django.utils import timezone
 class PrimaryTable(models.Model):
 
     Unique_id = models.CharField(max_length =50,default=0)
-    loom_no = models.IntegerField(default=0)
-    set_no = models.IntegerField(default=0)
-    beam_no = models.IntegerField(default=0)
-    piece_no = models.IntegerField(default=0)
+    loom_no = models.CharField(max_length =50,default=0)
+    set_no = models.CharField(max_length =50,default=0)
+    beam_no = models.CharField(max_length =50,default=0)
+    piece_no = models.CharField(max_length =50,default=0)
     Descrip = models.CharField(max_length =250,default=0)
     Weave = models.CharField(max_length =50,default=0)
     Weft_Count = models.CharField(max_length =50,default=0)

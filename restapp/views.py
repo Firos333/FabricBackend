@@ -126,6 +126,12 @@ class Tables(APIView):
                     row.delete()
             return Response(status=status.HTTP_201_CREATED)
         
+        elif "Unique_id_continue" in request.data:
+            Unique_id_check=request.data.get('Unique_id_continue')
+            if PrimaryTable.objects.filter(Unique_id=Unique_id_check).count()==1:
+                return Response({"Unique_id_continue":'yes'},status=status.HTTP_202_ACCEPTED)
+            else:
+                return Response({"Unique_id_continue":'no'},status=status.HTTP_400_BAD_REQUEST)
     
 
 

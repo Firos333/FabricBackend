@@ -25,7 +25,7 @@ SECRET_KEY = '$104g^a(xri6cup9b7d98o93%cff-t3(d((+ksljv^jt)9vc#('
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1','68.183.92.65']
 
 
 # Application definition
@@ -132,6 +132,6 @@ REST_FRAMEWORK = {
             'rest_framework.authentication.BasicAuthentication',  # enables simple command line authentication
             'rest_framework.authentication.SessionAuthentication',
             'rest_framework.authentication.TokenAuthentication',
-            'rest_framework_simplejwt.authentication.JWTAuthentication',
+            'rest_framework_simplejwt.ion.JWTAuthentication',
         )
     }

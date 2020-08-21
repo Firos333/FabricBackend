@@ -131,7 +131,7 @@ class Tables(APIView):
             if PrimaryTable.objects.filter(Unique_id=Unique_id_check).count()==1:
                 return Response({"Unique_id_continue":'yes'},status=status.HTTP_202_ACCEPTED)
             else:
-                return Response({"Unique_id_continue":'no'},status=status.HTTP_400_BAD_REQUEST)
+                return Response({"Unique_id_continue":'No'},status=status.HTTP_400_BAD_REQUEST)
     
 
 

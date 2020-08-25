@@ -48,7 +48,7 @@ class Tables(APIView):
             return Response({"Unique_id":Unique_id},status=status.HTTP_201_CREATED)
 
         elif "fault" in request.data:
-            faultss = ['YSV_count_Yawn','CV_count_Yawn','CWft_count_Yawn','ThTh_count_Yawn',
+            faultss = ['H_count_Machine','YSV_count_Yawn','CV_count_Yawn','CWft_count_Yawn','ThTh_count_Yawn',
 'CM_count_Yawn','SY_count_Yawn','Ctn_count_Yawn','CWp_count_Yawn',
 
 'SOS_count_Sizing','SPB_count_Sizing','SV_count_Sizing','SS_count_Sizing',
@@ -57,7 +57,7 @@ class Tables(APIView):
 
 'DOP_count_Weavers','HS_count_Weavers','WDR_count_Weavers','WWft_count_Weavers','WDT_count_Weavers','SW_count_Weavers',
 
-'EH_count_Machine','H_count_Machine','LM_count_Machine','LWP_count_Machine',
+'EH_count_Machine','LM_count_Machine','LWP_count_Machine',
 'MB_count_Machine','OWP_count_Machine', 'RM_count_Machine','SM_count_Machine','TM_count_Machine',
 
 'BP_count_Machine','CR_count_Machine','DE_count_Machine','FL_count_Machine','LO_count_Machine',

@@ -64,6 +64,6 @@ class ThirdTable(models.Model):
     time_date = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return (self.Unique_id + ' ' +self.meter)
+        return (self.Unique_id)
 for fault in faults:
     ThirdTable.add_to_class(fault, models.CharField(max_length=150))

@@ -48,7 +48,7 @@ class Tables(APIView):
             return Response({"Unique_id":Unique_id},status=status.HTTP_201_CREATED)
 
         elif "fault" in request.data:
-            faultss = ['YSV_count_Yawn','CV_count_Yawn','CW_count_Yawn','ThTh_count_Yawn',
+            faultss = ['YSV_count_Yawn','CV_count_Yawn','CWft_count_Yawn','ThTh_count_Yawn',
 'CM_count_Yawn','SY_count_Yawn','Ctn_count_Yawn','CWp_count_Yawn',
 
 'SOS_count_Sizing','SPB_count_Sizing','SV_count_Sizing','SS_count_Sizing',
@@ -84,7 +84,7 @@ class Tables(APIView):
             if x > 0:
                 get_pk =ThirdTable.objects.filter(meter=meter_read,Unique_id=Unique_id).values('pk')
                 y = get_pk[0]['pk']
-                listed = fault.split("B", 1)
+                listed = fault.split("Bu", 1)
                 letter = listed[0]
                 starts_with = [word for word in faultss if word.startswith(letter)]
                 name=starts_with[0] 

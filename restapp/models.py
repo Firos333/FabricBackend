@@ -37,7 +37,7 @@ class SecondTable(models.Model):
     def __str__(self):
         return self.fault
 
-faults = ['YSV_count_Yawn','CV_count_Yawn','CW_count_Yawn','ThTh_count_Yawn',
+faults = ['YSV_count_Yawn','CV_count_Yawn','CWft_count_Yawn','ThTh_count_Yawn',
 'CM_count_Yawn','SY_count_Yawn','Ctn_count_Yawn','CWp_count_Yawn',
 
 'SOS_count_Sizing','SPB_count_Sizing','SV_count_Sizing','SS_count_Sizing',

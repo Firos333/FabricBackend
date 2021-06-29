@@ -1,4 +1,4 @@
-# restful
+# Fabric Backend
 A backend API for Pyqt GUI of fabrication project 
 
 
